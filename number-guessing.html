@@ -109,6 +109,15 @@ It has been edited by Peter Chapin.
 
   guessSubmit.addEventListener('click', checkGuess);
 
+  function submitGuess(event) {
+    // Check if the pressed key is 'Enter'
+    if (event.key === 'Enter') {
+      guessSubmit.click();   // Simulate a click on the submit button
+    }
+  }
+
+  guessField.addEventListener('keypress', submitGuess);
+
   function setGameOver() {
     guessField.disabled = true;
     guessSubmit.disabled = true;
