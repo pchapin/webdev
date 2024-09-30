@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Demonstration</title>
+  <script>
+    // Example from: https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction
+    //
+    // Run this function when the document is loaded.
+    window.onload = () => {
+      // Create a couple of elements in an otherwise empty HTML page.
+      const heading = document.createElement('h1');
+      const headingText = document.createTextNode('Big Head!');
+      heading.appendChild(headingText);
+      document.body.appendChild(heading);
+    };
+  </script>
+</head>
+<body>
+</body>
+</html>
