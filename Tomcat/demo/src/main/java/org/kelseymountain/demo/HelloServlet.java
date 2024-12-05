@@ -2,6 +2,7 @@ package org.kelseymountain.demo;
 
 import java.io.*;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -9,11 +10,16 @@ import jakarta.servlet.annotation.*;
 public class HelloServlet extends HttpServlet {
     private String message;
 
-    public void init() {
+    @Override
+    public void init() throws ServletException {
         message = "Hello World!";
+        getServletContext().log("HelloServlet initialized");
     }
 
+    @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        getServletContext().log("HelloServlet doGet() called");
+
         response.setContentType("text/html");
 
         // Hello
@@ -23,6 +29,7 @@ public class HelloServlet extends HttpServlet {
         out.println("</body></html>");
     }
 
+    @Override
     public void destroy() {
     }
 }
