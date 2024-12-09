@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="8cm" height="5cm" viewBox="0 0 300 200">
+
+  <rect x="50" y="50" width="100" height="25" style="stroke: black; fill: none"/>
+  <g>
+    <defs>
+      <radialGradient fx="150" fy="100" r="100" cx="150" cy="100" id="MyGradient"
+        gradientUnits="userSpaceOnUse">
+        <stop style="stop-color:red" offset="0%"/>
+        <stop style="stop-color:blue" offset="50%"/>
+        <stop style="stop-color:red" offset="100%"/>
+      </radialGradient>
+    </defs>
+    <rect x="50" y="50" width="200" height="100" style="fill:url(#MyGradient); stroke:black"/>
+    <text style="font-family:Verdana; font-size:24; 
+        font-weight:bold; fill:white" text-anchor="middle" x="150" y="100">Hello,
+      World!</text>
+  </g>
+
+</svg>

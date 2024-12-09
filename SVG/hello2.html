@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<!--
+This document illustrates how to inline SVG into HTML. The advantage of doing this is that CSS
+from the enclosing HTML can be used in a straight forward way to style SVG elements. Also the
+SVG elements become part of the enclosing HTML document's DOM and can be manipuated with
+JavaScript for dynamic or interactive effects.
+-->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Inline Example</title>
+    <style>
+      /* CSS for styling the SVG or its elements */
+      svg {
+        display: block;
+        margin: auto;
+      }
+      rect {
+        stroke: green;
+        stroke-width: 2px;
+      }
+      text {
+        fill: darkblue;
+      }</style>
+  </head>
+  <body>
+    <h1>My SVG Image</h1>
+    <!-- Inline SVG -->
+    <svg width="8cm" height="5cm" viewBox="0 0 300 200" role="img" aria-labelledby="logoID"
+      xmlns="http://www.w3.org/2000/svg">
+      <title id="logoID">Company Logo</title>
+      <g>
+        <defs>
+          <radialGradient fx="150" fy="100" r="50" cx="150" cy="100" id="MyGradient"
+            gradientUnits="userSpaceOnUse">
+            <stop style="stop-color:red" offset="0%"/>
+            <stop style="stop-color:blue" offset="50%"/>
+            <stop style="stop-color:red" offset="100%"/>
+          </radialGradient>
+        </defs>
+        <rect x="50" y="50" width="200" height="100" style="fill:url(#MyGradient); stroke:black">
+          <animateTransform attributeName="transform" type="rotate" from="0 150 100"
+            to="360 150 100" dur="10s" repeatCount="indefinite"/>
+        </rect>
+        <text style="font-family:Verdana; font-size:24; font-weight:bold; fill:white"
+          text-anchor="middle" x="150" y="100">Hello, World!<animateTransform
+          attributeName="transform" type="rotate" from="0 150 100" to="-360 150 100" dur="5"
+          repeatCount="indefinite"/></text>
+      </g>
+    </svg>
+  </body>
+</html>
