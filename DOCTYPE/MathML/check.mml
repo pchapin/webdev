@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE math:math PUBLIC "-//OpenOffice.org//DTD Modified W3C MathML 1.01//EN" "math.dtd">
-<math:math xmlns:math="http://www.w3.org/1998/Math/MathML">
- <math:semantics>
-  <math:mrow>
-   <math:msup>
-    <math:mi>a</math:mi>
-    <math:mn>2</math:mn>
-   </math:msup>
-   <math:mo math:stretchy="false">=</math:mo>
-   <math:mrow>
-    <math:msup>
-     <math:mi>b</math:mi>
-     <math:mn>2</math:mn>
-    </math:msup>
-    <math:mo math:stretchy="false"></math:mo>
-    <math:msup>
-     <math:mi>c</math:mi>
-     <math:mn>2</math:mn>
-    </math:msup>
-   </math:mrow>
-  </math:mrow>
-  <math:annotation math:encoding="StarMath 5.0">a^2 = b^2 + c^2</math:annotation>
- </math:semantics>
-</math:math>
+
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <semantics>
+    <mrow>
+      <msup>
+        <mi>a</mi>
+        <mn>2</mn>
+      </msup>
+      <mo>=</mo>
+      <mrow>
+        <msup>
+          <mi>b</mi>
+          <mn>2</mn>
+        </msup>
+        <mo>+</mo>
+        <msup>
+          <mi>c</mi>
+          <mn>2</mn>
+        </msup>
+      </mrow>
+    </mrow>
+    <annotation encoding="application/x-tex">a^2 = b^2 + c^2</annotation>
+  </semantics>
+</math>
