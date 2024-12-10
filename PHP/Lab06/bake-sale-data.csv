@@ -1,0 +1,14 @@
+student_id,description,category,init quantity,unit price,sold,sale day
+1,chocolate chip,cookie,24,0.50,3,Mon
+1,chocolate frosted,brownie,36,0.75,5,Mon
+2,pink frosted,cupcakes,18,1.00,4,Mon
+2,dipped with sprinkles,pretzel,36,0.25,7,Mon
+2,dipped with sprinkles,pretzel,36,0.25,2,Mon
+1,chocolate chip,cookie,24,0.50,2,Tues
+1,chocolate frosted,brownie,36,0.75,3,Tues
+2,pink frosted,cupcakes,18,1.00,6,Tues
+2,dipped with sprinkles,pretzel,36,0.25,9,Tues
+1,chocolate chip,cookie,24,0.50,6,Wed
+1,chocolate frosted,brownie,36,0.75,7,Wed
+2,pink frosted,cupcakes,18,1.00,8,Wed
+2,dipped with sprinkles,pretzel,36,0.25,8,Wed

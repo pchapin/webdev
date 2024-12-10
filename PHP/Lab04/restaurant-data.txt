@@ -1,0 +1,8 @@
+server=Jill
+plate=10.23
+drink=2.50
+plate=9.99
+drink=
+plate=12.32
+drink=1.50
+tip = 5.00

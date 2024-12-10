@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>A simple HTML document</title>
+    <style>
+      article, footer, header, footer, nav { display: block; }
+      article { float: right; width: 85%; }
+      footer  { clear: both; }
+      nav     { float: left;  width: 15%; }
+      
+      body    > header { color: red; }
+      article > header { color: green; }
+    </style>
+    
+    <script type="text/javascript" src="simple.js"/>
+  </head>
+
+
+  <body>
+    <header>
+      <hgroup>
+        <h1>Example HTML5 Document</h1>
+        <h2>... and associated quirks</h2>
+      </hgroup>
+    </header>
+
+    <nav>
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="http://www.vermontstate.edu/">VTSU</a></li>
+        <li><a href="http://www.uvm.edu/">UVM</a></li>
+      </ul>
+    </nav>
+
+    <article>
+      <header>
+        <h2>Introduction</h2>
+        <time datetime="2010-11-29">November 29, 2010</time>
+      </header>
+
+      <script type="text/javascript">hello( )</script>
+      
+      <p>This is a sample HTML5 document that I'm using to help me get some experience with the
+      markup. I'm more or less following along the example in the book I'm reading on Safari.
+      However I do find it useful to deviate from the text now and then as well.</p>
+      
+      <footer>
+        <p>&copy; Copyright 2024 by Peter Chapin</p>
+      </footer>
+    </article>
+    
+    <article>
+      <header>
+        <h2>Second Article</h2>
+        <time datetime="2010-11-29T08:02-0500">November 29, 2010</time>
+      </header>
+      
+      <p>This is my second article. I want to see how it looks when rendered in IEv9. I want to
+      try a footer on the blockquote element now. Here is how it goes:</p>
+      
+      <blockquote>
+        In theory, theory and practice are the same. In practice, they are not.
+        <footer>Albert Einstein</footer>
+      </blockquote>
+      
+      <footer>
+        <p><a href="http://127.0.0.1/">Personal Web Site</a></p>
+      </footer>
+    </article>
+
+    <footer>
+      <p>&copy; 2024 by <a href="mailto:peter.chapin@vermontstate.edu">Peter Chapin</a></p>
+    </footer>
+  </body>
+</html>

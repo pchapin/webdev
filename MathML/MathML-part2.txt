@@ -1,0 +1,180 @@
+From pchapin@ecet.vtc.edu Wed Jul 30 09:20:18 2003
+Date: Wed, 30 Jul 2003 09:06:36 -0400
+From: Peter C. Chapin <pchapin@ecet.vtc.edu>
+Reply-To: vtc3@cc.vtc.edu
+To: VTC Computer Club <vtc3@cc.vtc.edu>
+Subject: [vtc3] MathML, Part II: Authoring.
+
+
+Although I haven't completed my review of MathML authoring options yet, I
+need to move on so I wanted to post a note now on what I have found out so
+far. I may post more on this subject at a later time but if so it won't be
+for a while.
+
+Options for rendering MathML are usable, but limited. However, I have not
+yet found a suitable option for authoring MathML. I started with the
+assumptions that a) MathML is too verbose to write effectively "manually"
+and that some sort of tool would be necessary, and b) the tool would also
+have to provide for the authoring of the surrounding text (in XHTML) since
+mathematical notation is normally very closely associated with text. These
+assumptions rule out several options for creating MathML. For example
+OpenOffice's equation editor can save to MathML. However, the equation
+editor alone can't edit text making it unusuable for the sort of documents
+I'm visualizing.
+
+Here is a list of some of the possibilities I considered.
+
+
+TeX --> MathML Converters
+-------------------------
+
+There are at least two systems out there that can convert a TeX document
+into an XHTML+MathML document. While in some respects this is exactly what
+is needed, I did not look at either of those systems because I object to
+them on principle. It seems to me that XML technologies should be able to
+be independent of TeX. If they are not, then the XML technologies are
+deficient. In theory, things like DocBook-->XSLT-->XSL:FO should be able
+to replace TeX by providing the same functionality in a more modern
+context. Relying on TeX to deal with equations in such a tool chain seems
+inappropriate in the long run.
+
+
+Amaya
+-----
+
+The W3C's demonstration editor/browser allows you to edit web pages with
+embedded MathML (also with embedded SVG, but that's another story). I
+found using Amaya to be workable but awkward. Its user interface is not
+particularly well streamlined and its rendering of MathML could be better.
+In particular, the equations often just look plain ugly. It also seems to
+lack all the fonts that it needs to do some of the things I want to do
+right now. While Amaya looks like a nice "proof of concept" tool, I can't
+see myself trying to do real work with it.
+
+
+Mozilla
+-------
+
+The Mozilla project pages state that they hope to eventually include
+support for editing MathML in the Mozilla composer. I find Mozilla's
+composer to be easier and nicer to use than, for example, Amaya so such an
+addition might make producing MathML encriched documents feasible. Also,
+once Mozilla learns how to render MathML in email messages, MathML editing
+in its composer might allow one to create useful MathML enriched email...
+something I would be very interested in doing. However, the MathML editing
+features are currently completely unimplemented.
+
+There is an third party MathML editor for Mozilla called mathmled. It is
+an XUI application and when installed it integrates itself into Mozilla.
+It is unusuable. For one thing a lot of it is unfinished. Secondly it
+doesn't really integrate itself with the Mozilla composer. Instead it
+provides a completely separate environment for editing XHTML+MathML
+documents. However, the environment it provides is far less competent an
+XHTML editor than composer. It's a work in progress and can't be used for
+any serious document preparation.
+
+
+OpenOffice
+----------
+
+Although the OpenOffice equation editor along can't be used to effectively
+produce MathML for a complex document (since it doesn't allow you to edit
+text), OpenOffice comes with a web page editor as well that isn't half
+bad. In the web page editor you can insert an equation. In that case, it
+starts the equation editor as a supporting application. This is great
+except that OpenOffice's web page editor produces HTML v3.2 documents (I
+couldn't find a way to change that) and the equations are handled as
+in-line images. While this is nicely portable I argued in Part I that
+such handling would be unwieldly for complex documents due to the enormous
+number of images required. I don't see this as a feasible solution.
+
+Note: I used OpenOffice v1.0.3 for this and not the about the be released
+v1.1.
+
+
+MathCad, Word, etc
+------------------
+
+I'm not wild about using a non-free program to author my XHTML+MathML
+documents, but certainly it has to be considered. I have a copy of MathCad
+and it can write MathML enriched documents. However, it writes documents
+in a form that only the IBM Techexplorer plug-in understands. Similarly it
+appears that there are tools that convert Word documents to a form of
+MathML enriched HTML that only MathPlayer can understand. These
+dependencies on a particular MathML plug-in are unacceptable in my mind.
+
+
+SciWriter
+---------
+
+This is another commercial MathML editor that I downloaded to try. It
+looked fairly promising. It produces W3C standard XHTML+MathML documents
+(no plug-in dependencies) and it had the nicest user interface of any of
+the editors I tried. It also happened to be a .NET program. I wrote a
+somewhat useful document on symbolic logic using SciWriter. It was short,
+but it contained "real" material... material I might want to actually
+write about in my upcoming MAT-3720 class.
+
+The problem with SciWriter was that by default it included a huge quantity
+of styling information in the document. I could see no way to turn it off
+or even tone it down. Mozilla could process its output okay but Amaya
+crashed when it tried to render it. I think the problem was in the
+document because both of the XML validators I use, Xerces and XSV, also
+crashed with "fatal parsing errors" when trying to process the document.
+I've never seen that before.
+
+What's worse SciWriter couldn't read its own output! The next day when I
+tried to continue editing the document SciWriter told me that it had an
+"unrecoverable parse error" and that it "wasn't a SciWriter document".
+Needless to say I was not impressed. I uninstalled it immediately. I then
+stripped out the excessive styling information from the document and now
+both Mozilla and Amaya are happy with it.
+
+
+Emacs
+-----
+
+At this point I'm thinking that WYSIWYG XHTML+MathML editors are not ready
+for the prime time. I am thus going to drop my assumption that manual
+editing of MathML is unacceptable. However, the extreme verbosity of
+MathML means that anyone trying to edit it manually is going to want a lot
+of help from his/her editor.
+
+My Emacs comes with an SGML/XML editing package called psgml. It is fairly
+powerful. It knows how to read a DTD and can do element completion,
+automatically fill in required element content, run an external validator
+and then track the error messages, do automatic indentation based on
+element depth, etc, etc. I have not explored psgml fully but I did play
+with it a little when editing the HTML in my C notes. It seems pretty
+cool.
+
+My plan is to download the blended XHTML+MathML DTD from the W3C, tell
+psgml where it is located, and then see if I can use Emacs effectively to
+prepare MathML enriched documents. While I'm expecting it to be tedious it
+does have the advantage of putting me in complete control of what is going
+on in my document. Also, if I define my own entities to abbreviate
+commonly used MathML markup, I might be able to keep things managable. I
+have yet to try this.
+
+XMLSpy might be another option. Although a commercial product, it also
+allows me to edit the documents "raw" while providing me with lots of
+convenience features such as I mentioned above. XMLSpy has a fairly slick
+interface and might be an even better choice for this.
+
+I'm probably not going to have time to explore this final angle right
+away. If I do later I will follow up with a Part III to this series on
+MathML. I hope you've found it interesting so far. If anyone wants to
+check out a MathML document, I invite you to look at
+
+	http://www.ecet.vtc.edu/~pchapin/formal-system-L.xhtml
+
+This is the document I wrote in SciWriter and then cleaned up
+considerable. It should render fine in Mozilla (if you've downloaded the
+extra fonts).
+
+In the meantime for MAT-3720 I'll probably just write my documents with
+TeX and if I want them on the web, I'll just post PDF. :-)
+
+Peter
+
+

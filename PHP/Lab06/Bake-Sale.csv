@@ -1,0 +1,14 @@
+Student,grade,homeroom,description,category,init quantity,unit price,sold,sale day
+sam,5,Mrs B,chocolate chip,cookie,24,0.50,3,Mon
+sam,5,Mrs B,chocolate frosted,brownie,36,0.75,5,Mon
+betty,4,Mr H,pink frosted,cupcakes,18,1.00,4,Mon
+betty,4,Mr H,dipped with sprinkles,pretzel,36,0.25,7,Mon
+betty,4,Mr H,dipped with sprinkles,pretzel,36,0.25,2,Mon
+sam,5,Mrs B,chocolate chip,cookie,24,0.50,2,Tues
+sam,5,Mrs B,chocolate frosted,brownie,36,0.75,3,Tues
+betty,4,Mr H,pink frosted,cupcakes,18,1.00,6,Tues
+betty,4,Mr H,dipped with sprinkles,pretzel,36,0.25,9,Tues
+sam,5,Mrs B,chocolate chip,cookie,24,0.50,6,Wed
+sam,5,Mrs B,chocolate frosted,brownie,36,0.75,7,Wed
+betty,4,Mr H,pink frosted,cupcakes,18,1.00,8,Wed
+betty,4,Mr H,dipped with sprinkles,pretzel,36,0.25,8,Wed

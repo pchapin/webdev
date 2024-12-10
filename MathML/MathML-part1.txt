@@ -1,0 +1,172 @@
+From pchapin@ecet.vtc.edu Tue Jul 29 18:09:58 2003
+Date: Tue, 29 Jul 2003 11:08:22 -0400
+From: Peter C. Chapin <pchapin@ecet.vtc.edu>
+Reply-To: vtc3@cc.vtc.edu
+To: VTC Computer Club <vtc3@cc.vtc.edu>
+Subject: [vtc3] MathML, Part I: Rendering.
+
+
+As some of you may know I will be teaching MAT-3720 (Topics in Discrete
+Math) next semester. Dr. Ingram has moved on to greener pastures and the
+math department doesn't have the personnel at the moment to deal with the
+course. I am thus taking this opportunity to look at my options for
+dealing with complex mathematical notation on the web and in email
+messages. For printed documents, I can do everything I would want with
+TeX. However, how should I deal with mathematical notation on a class
+mailing list, for example? Perhaps the day has come when an elegant
+solution is possible. I wanted to find out.
+
+My plan was to post a message to this list summarizing my findings and my
+conclusions. However, the subject is bigger than I realized and so I'm
+posting this intermediate message now with perhaps other messages to
+follow. I would, of course, also be interested in any comments or thoughts
+you folks might have.
+
+First, it is important to realize: mathematical notation is NOT like
+graphic images. Many times mathematical notation is tightly integrated
+with the surrounding text and is very "dense". I have some advanced books
+in which perhaps as much as 25% of the text is actually mathematical
+notation. Often the notation comes in short "bursts"  separated by only
+two or three words with several such bursts in a single sentence. Dealing
+with mathematical notation as a collection of in-line graphic images would
+be unwieldly at best and totally unmanagable in all but the simpliest
+documents.
+
+Here is a example of what I mean taken from a book that I happen to have
+on hand. This is from "Matric Computations" by G.H. Golub and C.F. Van
+Loan. I use TeX notation here. The '$' introduces "math mode" as well as
+exits from math mode.
+
+----> cut <----
+The eigenvalues of a matrix $A \in \bbold{C}^{n \times n}$ are the $n$
+roots of its characteristic polynomial $p(z) = \det(zI - A)$. The set of
+these roots is called the spectrum and is denoted by $\lambda(A)$. If
+$\lambda(A) = \{\lambda_1, \ldots, \lambda_n\}$, then it follows that
+
+\begin{displaymath}
+  \det(A) = \lambda_1 \lambda_2 \cdots \lambda_n .
+\end{displaymath}
+
+----> cut <----
+
+In this example, the displayed formula is only a fraction of all the
+mathematical notation used. A substantial amount of notation is embedded
+in the paragraph above the display. Furthermore the notation "flows" as
+part of the sentence structure of that paragraph.
+
+The W3C's solution for handling mathematical notation is MathML. It is an
+XML vocabulary with an expressive power similar to TeX's. My first step,
+therefor, was to find an effective way to display text with embedded
+MathML.
+
+The W3C has an officially sanctioned way to do this. The following
+document illustrates. It contains the text "The simple equation $a^n = b^n
++ c^n$ is one of the most famous in history."
+
+----> cut <----
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN"
+  "http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Famous Equations</title>
+</head>
+<body>
+  <p>The simple equation
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mrow>
+        <msup>
+          <mi>a</mi>
+          <mn>n</mn>
+       </msup>
+       <mo stretchy="false">=</mo>
+       <mrow>
+         <msup>
+           <mi>b</mi>
+           <mn>n</mn>
+         </msup>
+         <mo stretchy="false">+</mo>
+         <msup>
+           <mi>c</mi>
+           <mn>n</mn>
+         </msup>
+       </mrow>
+     </mrow>
+   </math> is one of the most famous in history.</p>
+</body>
+</html>
+----> cut <----
+
+One thing you'll notice right away is that MathML is exceedingly verbose.
+I will address this matter when I talk about the options for authoring
+MathML enriched documents in a later message.
+
+The document above is a formal mixture of XHTML and MathML. Mixing the two
+vocabularies freely is essential. Nobody is interested in a "pure" MathML
+document in the contexts I'm worried about. Who wants to look at a raw
+equation with no explanatory text? The W3C's approach requires the use of
+XHTML v1.1 since, as a modularlized XML markup, it can be configured to
+allow markup from other vocabularies to coexist with it. This can't be
+done in a formally correct way with plain HTML. Note, however, that due to
+limitations with DTDs, it is necessary to use a special "blended" DTD for
+the mixed document. The W3C provides such a DTD so that is not a problem
+(in cases where it matters at all).
+
+The document above renders properly in only two browsers that I know
+about. Mozilla and the W3C's demonstration editor/browser, Amaya. You have
+to download some special math fonts for Mozilla before it works properly,
+but that is not a problem (there are links on the Mozilla site).
+
+To render MathML in IE one needs to use a plug-in. As far as I can see
+there are only two. The first is IBM's Techexplorer and the second is
+MathPlayer from Design Science. Techexplorer is a fairly heavy product. It
+allows you to render TeX as well as MathML and the full version costs
+actual money.  MathPlayer is free, however.
+
+The problem with using a plug-in is that the functionality it provides is
+only accessible via the <object> or <embed> element or something similar.
+The two plug-ins require a number of "special" and incompatible things in
+the document in order for them to work. It is essentially impossible to
+create a single HTML document that will work with either. On the other
+hand, they do allow MathML to be mixed in with HTML. The use of XHTML is
+not required.
+
+But now it gets really interesting. At last year's conference on MathML,
+David Carlisle presented a paper on rendering MathML in "any" browser that
+supports XSLT and CSS. Using his method it is possible to render MathML in
+IE without any plug-in at all! The idea is this: create a mixed
+XHTML+MathML document as recommended by the W3C. Link to this document a
+suitable XSLT stylesheet. The stylesheet would transform the MathML into
+heavily CSS-marked up HTML which the browser would then render. The
+browser only needs a good CSS implementation and XSLT (of course).
+Carlisle's style sheets can (supposedly) autodetect the existence of
+Techexplorer and MathPlayer. If the plug-ins are found it styles the
+MathML into suitable <object> elements and avoids going crazy with CSS. If
+the browser has native MathML support (Mozilla or Amaya), the stylesheets
+just use an "identity" transformation and let the browser do all the real
+work. The result: MathML renders in all browsers using the same, properly
+formatted, source document. Cool!
+
+I downloaded Carlisle's style sheets (avalable on the W3C's web site) and
+tried them out. However, I could only get them to work intermittantly.  I
+know my MathPlayer is installed correctly because it correctly renders the
+example pages on the MathPlayer site. Also my IE correctly rendered the
+examples on the W3C's site that use this styling technique. However, I
+only got IE to process my own XHTML+MathML documents sometimes when using
+my own copies of the style sheets. I'm not sure exactly what I'm doing
+wrong.
+
+In any case, it may not matter. Mozilla seems, so far at least, reasonably
+competent at rendering MathML the "right" way. It is not unreasonable to
+say to students, "Use Mozilla to look at these pages." Do you think?
+
+Although I haven't yet tried this, I'd like to think that Mozilla could
+also render MathML in an email message with application/xhtml+mathml+xml
+MIME type (I believe that's the right type... I'll have to check it).
+While I know many people scorn text/html email, this seems like an
+application where something other than text/plain is warranted.
+
+Thoughts?
+
+Peter
+

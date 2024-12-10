@@ -1,0 +1,41 @@
+
+Named Colors
+------------
+
+The following color names are suggested by the CSS specification. All
+known browsers suppor them. Browsers may (and often do) support many
+additional color names. However, the use of such names is less portable
+than sticking to these. Note also that the color values for the names
+here are defined in the specification. Other color names may have
+varying color values as you move from browser to browser.
+
+aqua
+gray
+navy
+silver
+black
+green
+olive
+teal
+blue
+lime
+purple
+white
+fuchsia
+maroon
+red
+yellow
+
+"Web-Safe" Colors
+-----------------
+
+To minimize the possibility of dithering or color shifting one can stick
+to the 216 colors defined using #00, #33, #66, #99, #CC, #FF in their
+various combinations.
+
+Examples:
+
+        Full            Short
+        #33CC66         #3C6
+        #00FF99         #0F9
+

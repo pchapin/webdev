@@ -1,0 +1,35 @@
+From pchapin@ecet.vtc.edu Wed Jul 30 09:13:45 2003
+Date: Tue, 29 Jul 2003 23:21:01 -0400
+From: Peter C. Chapin <pchapin@ecet.vtc.edu>
+Reply-To: vtc3@cc.vtc.edu
+To: VTC Computer Club <vtc3@cc.vtc.edu>
+Subject: [vtc3] Quick follow-up on MathML rendering.
+
+
+I attempted to send an email message to Mozilla's email client to see if I
+could get it to render MathML in such messages. My tests were failures.
+
+I hand composed the message headers to be sure I was in control of what
+was being sent. For my first test I used a MIME type of
+application/xhtml+xml. Mozilla's email client showed the body of the
+message as an attachment. When I told it to open the attachment it said
+that it didn't know how to handle application/xhtml+xml. That seemed
+strange since it clearly does know how to handle that MIME type when
+rendering web pages.
+
+In my second test I tried text/html. Mozilla's email client showed the
+message okay, but ignored the MathML markup (ignored the tags and showed
+me the contents "raw"). In my final test I tried text/xml but that message
+never arrived at my sover.net address. I wonder if sover.net's
+configuration of Spam Assassin eliminated the message as potential spam. I
+guess not many legitimate messages are being sent as text/xml at this
+point.
+
+All in all I was disappointed. Clearly the rendering being done in email
+messages is not 100% identical to that done during the handling of web
+pages. I suspect that there currently does not exist an email program that
+can render MathML in email messages (using the mixed document approach
+sanctioned by the W3C, at least).
+
+Peter
+

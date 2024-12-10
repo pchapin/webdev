@@ -1,0 +1,28 @@
+
+body { background: white; }
+@media screen { 
+  h1 { 
+    color: green;
+    background: blue;
+    border: 10px solid black;
+    padding: 1em;
+    text-transform: capitalize;
+  }
+}
+
+@media print { 
+  h1 { 
+    color: black;
+    border: 10px solid black;
+  }
+}
+
+address { 
+  /* font-size: 85%; */
+  /* color: green;   */
+  border: 1px solid black;
+  padding: 0.5ex;
+}
+
+p { text-decoration: underline; color: black; }
+b { color: red; text-decoration: none; }
