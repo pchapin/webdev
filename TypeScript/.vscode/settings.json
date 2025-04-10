@@ -1,0 +1,21 @@
+{
+    // Enable ESLint integration in VS Code
+    "eslint.enable": true,
+    "eslint.validate": ["typescript", "javascript"],
+  
+    // Automatically fix certain problems on save (e.g., unused vars, missing await)
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+  
+    // Do not use VS Code’s built-in formatter
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null,
+  
+    // Optional: ensure TypeScript language features work smoothly
+    "typescript.validate.enable": true,
+  
+    // Optional: treat project root as the place to look for eslint.config.mjs
+    "eslint.experimental.useFlatConfig": true
+  }
+  

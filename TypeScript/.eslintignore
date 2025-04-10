@@ -1,0 +1,17 @@
+# Output directories
+dist/
+build/
+
+# Dependency packages
+node_modules/
+
+# TypeScript declaration files
+*.d.ts
+
+# Configs and scripts not meant to be linted
+vite.config.ts
+eslintrc.*
+
+# Tests or snapshots
+coverage/
+*.snap
