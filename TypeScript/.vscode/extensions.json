@@ -1,0 +1,33 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
+  // Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+
+  // List of extensions which should be recommended for users of this workspace.
+  "recommendations": [
+    "dbaeumer.vscode-eslint", // ESLint integration
+    "esbenp.prettier-vscode", // Prettier formatting
+    "vitest.explorer", // Vitest test runner integration
+    "yoavbls.pretty-ts-errors" // Optional: better formatting for TS error messages
+    // "streetsidesoftware.code-spell-checker", // Optional: Spell checking in comments and strings
+    // "editorconfig.editorconfig",             // Optional: support for .editorconfig files
+
+    // Optional framework-specific extensions (uncomment as needed)
+
+    // --- React ---
+    // "dsznajder.es7-react-js-snippets",  // React code snippets
+    // "xabikos.ReactSnippets",            // Another popular React snippet pack
+
+    // --- Vue ---
+    // "johnsoncodehk.volar",              // Vue 3 support (with TypeScript)
+    // "vue.volar",                        // Official Vue team version (newer)
+
+    // --- Svelte ---
+    // "svelte.svelte-vscode",             // Svelte support
+
+    // --- Styling ---
+    // "bradlc.vscode-tailwindcss",        // Tailwind CSS support (if used)	],
+  ],
+
+  // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
+  "unwantedRecommendations": []
+}
